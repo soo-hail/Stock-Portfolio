@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Stock Portfolio{% endblock  %}
+
+{% block main %}
+    <div class="container py-5 text-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr> 
+                        <td>{{ stock['stock_symbol'] }}</td>
+                        <td>{{ stock['shares'] }}</td>
+                        <td>${{ (stock['total'] / stock['shares']) | round(2) }}</td>
+                        <td>${{ stock['total'] | round(2) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <th>Cash</th>
+                    <td>${{ cash | round(2)}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <th>Total</th>
+                    <td>${{ total | round(2)}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}

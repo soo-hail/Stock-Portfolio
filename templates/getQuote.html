@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %} Get Quote{% endblock  %}
+
+{% block main %}
+   <!-- FORM TO GET STOCK-SYMBOL, SO THAT USER CAN LOOK-UP PERTICULAR STOCK-QUOTE -->
+   <form action="/quote", method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="stock_symbol" placeholder="Stock Symbol" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Get Quote</button> 
+{% endblock  %}

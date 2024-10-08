@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}History{% endblock  %}
+
+{% block main %}
+    <div class="container py-5 text-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th> Transaction Type</th>
+                    <th> Date&Time</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr> 
+                        <td>{{ stock['stock_symbol'] }}</td>
+                        <td>{{ stock['trans_type'] }}</td>
+                        <td>{{ stock['timestamp'] }}</td>
+                        <td>{{ stock['shares'] }}</td>
+                        <td>${{ stock['price'] }}</td>
+                        <td>${{ stock['total'] | round(2) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
